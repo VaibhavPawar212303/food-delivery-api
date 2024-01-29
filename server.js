@@ -14,12 +14,12 @@ dotenv.config();
 const PORT = process.env.PORT || 8000;
 //create the app 
 var app = express();
+app.use(cors());
 const jsonParser = bodyParser.json();
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(jsonParser);
-app.use(cors());
+
 
 app.use("/api/payment/", paymentRoutes);
 app.use("/api/user/", userRoutes);
